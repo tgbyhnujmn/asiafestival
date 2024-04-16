@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sign Up Form by Colorlib</title>
+
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="/loginandsignup/fonts/material-icon/css/material-design-iconic-font.css">
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="/loginandsignup/css/style.css">    
+</head>
+<body>
+
+    <div class="main">
+        
+        <section class="signup">
+            
+           
+            <div class="container">
+                
+                <div class="signup-content">
+                    <form method="POST" id="signup-form" class="signup-form">
+                        <h2 class="form-title">welcome back!</h2>
+                        
+                        <div class="form-group">
+                            <input type="email" class="form-input" name="email" id="emaill" placeholder="Your Email"/>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-input" name="password" id="passwordd" placeholder="Password"/>
+                            <span toggle="#password" class="zmdi zmdi-eye field-icon toggle-password"></span>
+                        </div>
+                        
+                        
+                        <div class="form-group">
+                            <input type="submit" name="submit" id="submitt" class="form-submit" value="Sign in "/>
+                        </div>
+                    </form>
+                    <p class="loginhere">
+                        don't have an account ? <a href="/signup.html" class="loginhere-link">sign up here</a>
+                    </p>
+                    <p class="loginhere2">
+                        just here for some information?  <a href="/index.html" class="loginhere-link">be a guest!</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- JS -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="/loginandsignup/js/sign_in.js"></script>
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
+        import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js";
+
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyD1UCq3bxyBfs2j4yebDS9hS8kb_CPV5zk",
+            authDomain: "asia-festival.firebaseapp.com",
+            databaseURL: "https://asia-festival-default-rtdb.asia-southeast1.firebasedatabase.app",
+            projectId: "asia-festival",
+            storageBucket: "asia-festival.appspot.com",
+            messagingSenderId: "70760559280",
+            appId: "1:70760559280:web:14b542768f89ec66f84175"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const submit = document.getElementById("submitt")
+        
+        submit.addEventListener("click", register)
+        function register(e) {
+            e.preventDefault()
+            const email = document.getElementById("emaill").value 
+            const password = document.getElementById("passwordd").value
+            signInWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                    // Signed in 
+                    const user = userCredential.user;
+                    alert("login success")
+                    window.location.replace("/index.html");
+                })
+                .catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    alert("wrong email or password")
+                });
+
+            
+        }
+       
+
+    </script>
+</body>
+</html>

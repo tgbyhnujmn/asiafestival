@@ -455,7 +455,7 @@ a.icon {
 }
 
 #portfolio img {
-  width: 450px;
+  width: 400px;
   height: 220px;
 }
 
@@ -581,6 +581,9 @@ a.icon {
 
 #single-project img {
   padding-top: 14px;
+  width: 400px;
+  height: 400px;
+  
 }
 
 /* about section styles
@@ -668,7 +671,15 @@ a.icon {
 }
 
 #single-post .blog-comment .media img {
+ 
   padding-right: 14px;
+}
+
+#single-post .blog-thumb {
+  float: left;
+  width:  100px;
+  height: 100px;
+  object-fit: cover;
 }
 
 #single-post .blog-comment h4 {
@@ -875,3 +886,29 @@ footer {
   .intro-inner {top: 50%;}
 }
 
+.form-control submit{
+  background: #111112;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  transition: all 0.4s ease-in-out;
+  margin-top: 10px;
+}
+.form-control submit :hover{
+background: #444;
+}
+#submitt{
+  background: #111112;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  transition: all 0.4s ease-in-out;
+  margin-top: 10px;
+  width: 300px;
+  text-align: center;
+  height: 70px;
+  padding-top: 23px;
+  
+}
